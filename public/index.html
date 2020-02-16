@@ -24,20 +24,218 @@
       work correctly both with client-side routing and a non-root public URL.
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
-    <title>React App</title>
+    <title>Lotto App</title>
+    <link rel="stylesheet" href="https://bootswatch.com/4/flatly/bootstrap.min.css">
   </head>
-  <body>
+  <body class="container" style="padding: 20px;">
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
-    <!--
-      This HTML file is a template.
-      If you open it directly in the browser, you will see an empty page.
 
-      You can add webfonts, meta tags, or analytics to this file.
-      The build step will place the bundled scripts into the <body> tag.
 
-      To begin the development, run `npm start` or `yarn start`.
-      To create a production bundle, use `npm run build` or `yarn build`.
-    -->
+    <div class="row">
+      <div class="col-md-4">
+
+        <table class="table table-bordered">
+          <tr class="alert-success">
+            <th colspan="2">
+              User
+            </th>
+          </tr>
+          <tr>
+            <td>Status</td>
+              <td>
+                  <button class="btn btn-success"
+                      data-dh-feature="network"
+                      data-dh-property-enable>
+                      Connect
+                  </button>
+              </td>
+          </tr>
+            <tr>
+              <td>Address</td>
+                <td>
+                    <div
+                        data-dh-feature="user"
+                        data-dh-property-address="true"
+                        data-dh-modifier-display="short">
+                        address
+                </div>
+                </td>
+            </tr>
+            <tr>
+              <td>Balance</td>
+              <td>
+                <div
+                  data-dh-feature="user"
+                  data-dh-property-balance
+                  data-dh-modifier-units="ether" 
+                  data-dh-modifier-decimals="3">
+                  balance
+              </div>
+              </td>
+            </tr>
+
+            <tr>
+              <td>
+                Action
+              </td>
+              <td>
+                <div
+                    data-dh-feature="customContract"
+                    data-dh-property-contract-name="lottery_pool"
+                    data-dh-property-method-name="pickWinner"
+                    data-dh-property-method-id="00.3"
+                    data-dh-property-eth-value="0.001"></div>
+                <button class="btn btn-warning"
+                    data-dh-property-method-id="00.3" 
+                    data-dh-property-invoke="true">
+                Pick the winner
+                </button>
+                <div 
+                    data-dh-property-method-id="00.3" 
+                    data-dh-property-outputs="true">
+                </div>
+              </td>
+            </tr>
+            
+        </table>
+
+          <table class="table table-bordered">
+            <tr class="alert-info">
+              <th colspan="2">
+                Network
+              </th>
+            </tr>
+              
+              <tr>
+                <td>Net ID</td>
+                <td>
+                  <div
+                    data-dh-feature="network"
+                    data-dh-property-id="true">
+                    Net ID
+                </div>
+                </td>
+              </tr>
+              <tr>
+                <td>Net Name</td>
+                <td>
+                  <div
+                    data-dh-feature="network"
+                    data-dh-property-name="true">
+                    Net Name
+                </div>
+                </td>
+              </tr>
+              <tr>
+                <td>Net Provider</td>
+                <td>
+                  <div
+                    data-dh-feature="network"
+                    data-dh-property-provider="true">
+                    Net Provider
+                </div>
+                </td>
+              </tr>
+          </table>
+
+
+          
+      </div>
+      <div class="col-md-8">
+        <table class="table table-bordered">
+          <tr class="alert-info">
+            <th colspan="2">
+              Lotto
+            </th>
+          </tr>
+          <tr>
+            <td>
+              The Manage
+            </td>
+            <td>
+              <div
+                  data-dh-feature="customContract"
+                  data-dh-property-contract-name="lottery_pool"
+                  data-dh-property-method-name="manager"
+                  data-dh-property-method-id="001"
+                  data-dh-property-auto-invoke="true"></div>
+              <div 
+                data-dh-property-method-id="001" 
+                data-dh-property-outputs="true">
+                *-Manager address-*
+            </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              The winner
+            </td>
+            <td>
+              <div
+                  data-dh-feature="customContract"
+                  data-dh-property-contract-name="lottery_pool"
+                  data-dh-property-method-name="winner"
+                  data-dh-property-method-id="002"
+                  data-dh-property-auto-invoke="true"></div>
+              <div 
+                  data-dh-property-method-id="002" 
+                  data-dh-property-outputs="true">
+                  *-Winner address-*
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              Players
+            </td>
+            <td>
+              <div
+                  data-dh-feature="customContract"
+                  data-dh-property-contract-name="lottery_pool"
+                  data-dh-property-method-name="entryPlayers"
+                  data-dh-property-method-id="003"
+                  data-dh-property-auto-invoke="true"></div>
+              <div 
+                  data-dh-property-method-id="003" 
+                  data-dh-property-outputs="true">
+                  *-Manager address-*
+              </div>
+            </td>
+          </tr>
+        </table>
+
+        <table class="table table-bordered">
+          <tr class="alert-warning">
+            <td colspan="3">
+              Entry [Play]
+            </td>
+          </tr>
+          <tr>
+            <td>Amoun</td>
+            <td>
+              <div
+                    data-dh-feature="customContract"
+                    data-dh-property-contract-name="lottery_pool"
+                    data-dh-property-method-name="enter"
+                    data-dh-property-method-id="004"
+                    data-dh-property-eth-value="0.1"></div>
+            </td>
+            <td>
+              
+                <button class="btn btn-warning"
+                    data-dh-property-method-id="004" 
+                    data-dh-property-invoke="true">
+                Enter de Pool
+                </button>
+            </td>
+          </tr>
+        </table>
+
+      </div>
+  </div>
+
+  <script src="https://package.dapphero.io/main.js" id="dh-apiKey" data-api="1581834228548x304926620440592400"></script>
+    
   </body>
 </html>
